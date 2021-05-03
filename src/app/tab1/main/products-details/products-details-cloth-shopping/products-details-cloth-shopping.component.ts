@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { productsData } from 'src/app/data/products';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 @Component({
   selector: 'app-product-details-cloth-shop',
   templateUrl: './products-details-cloth-shopping.component.html',
-  styleUrls: ['./products-details-cloth-shopping.component.css']
+  styleUrls: ['./products-details-cloth-shopping.component.css'],
+  providers: [Vibration]
+
 })
 export class ProductDetailsClothShoppingComponent {
   public currentItem;
@@ -13,7 +16,7 @@ export class ProductDetailsClothShoppingComponent {
   isInCart = false;
   cart;
   oldCartData;
-  constructor(private router: Router) {
+  constructor(private router: Router,private vibration: Vibration) {
     this.currentItem = this.router.getCurrentNavigation().extras.state.currentProductData;
     this.currentItem.productQuantities = 1;
     this.currentItem.selectedSize = "Select Size";
@@ -28,6 +31,7 @@ export class ProductDetailsClothShoppingComponent {
 
   // navigate to add to cart section
   addProductToCart(product) {
+    this.vibration.vibrate(2000);
     this.router.navigate(['/tabs/tab1/cart']);
     let cartData = [];
     if(JSON.parse(localStorage.getItem('cartObject'))){

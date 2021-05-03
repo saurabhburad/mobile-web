@@ -17,7 +17,7 @@ export class Tab2Page {
     this.nativeStorage.getItem('myitem')
       .then(
         data => {
-          this.base64OrImage = data ? data : this.base64OrImage
+          this.base64OrImage = data?.property ? data?.property : this.base64OrImage
           console.log(data)
         },
         error => console.error(error)
