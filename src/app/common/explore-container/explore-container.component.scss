@@ -4,10 +4,13 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
+  top: 75%;
   transform: translateY(-50%);
 }
-
+.button-background-color{
+  --background: #ffd6d6;
+  color: black;
+}
 #container strong {
   font-size: 20px;
   line-height: 26px;

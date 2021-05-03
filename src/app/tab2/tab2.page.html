@@ -1,17 +1,37 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="new-background-color">
     <ion-title>
-      Tab 2
+     Welcome to profile
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container">
+    <!-- <div class="carousel-item col-md-3  active"> -->
+      <div class="card h-100">
+        <div class="card-body">
+          <div class="myback-img ">
+            <img src="{{base64OrImage}}"
+              class="">
+          </div>
+          <div class="myoverlay"></div>
+          <div class="profile-img">
+            <div class="borders avatar-profile">
+              <img
+                src="{{base64OrImage}}">
+            </div>
+          </div>
+          <!-- <div class="profile-title button-background-color">
+            <a>
+              <h3>Hi Guest</h3>
+            </a>
+          </div> -->
+        </div>
+      </div>
+    <!-- </div> -->
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+</div>
+<app-explore-container name="Tab 2 page" (image)="addItem($event)"> </app-explore-container>
+
 </ion-content>
