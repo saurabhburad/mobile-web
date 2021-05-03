@@ -31,7 +31,7 @@ export class ProductDetailsClothShoppingComponent {
 
   // navigate to add to cart section
   addProductToCart(product) {
-    this.vibration.vibrate(2000);
+    this.vibration.vibrate(1000);
     this.router.navigate(['/tabs/tab1/cart']);
     let cartData = [];
     if(JSON.parse(localStorage.getItem('cartObject'))){
