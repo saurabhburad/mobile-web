@@ -1,6 +1,6 @@
 # mobile-web
 
-This Regenerate Clothing project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1. Ionic version 5.5.2. camera: 5.32.1 ,native-storage: 5.32.1 ,splash-screen:5.32.1 ,vibration: 5.32.1
+This Regenerate Clothing project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1. Ionic version 5.5.2. camera: 5.32.1 ,native-storage: 5.32.1 ,splash-screen:5.32.1 ,vibration: 5.32.1, screen-orientation: 3.0.2
 
 
 ## Functionalities in project
@@ -27,6 +27,8 @@ Form validations have been added to this page. After entering all of the valid f
 
 11. The application was extended with website created for previous project
 
+12. The user can use screen Orientation feature to view application is Landscape or Potrait mode in about us page
+
 
 ## Plugin Added 
 
@@ -34,7 +36,7 @@ Form validations have been added to this page. After entering all of the valid f
 
 2. Vibration Plugin: When a user navigates to a product page, a description page, and then back to the navigation, their phone vibrates.
 
-3. Device Orientation: 
+3. screen Orientation:  When user is in about page user has ability to view is Landscape or Potrait mode
 
 ## Andriod apk version
 
