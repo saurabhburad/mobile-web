@@ -1,6 +1,6 @@
 <app-header-cloth-shopping-component></app-header-cloth-shopping-component>
 <ion-content [fullscreen]="true">
-  <back-button></back-button>
+  <back-button *ngIf="orderPlaced !== true"></back-button>
 
   <div class="container div-padding">
     <form [formGroup]="placeOrderForm" (ngSubmit)="confirmOrder()" *ngIf="orderPlaced === false" novalidate>
@@ -107,6 +107,7 @@
       Your Order has been confirmed. Thanks for placing order with us.
       You will get an order confirmation on your email. You will also get
       email notifications for tracking purpose.
+      <a routerLink="/tabs/tab1"> Home</a>
     </div>
   </div>
 </ion-content>

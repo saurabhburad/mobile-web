@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 @Component({
   selector: 'app-cart-cloth-shop',
   templateUrl: './cart-cloth-shopping.component.html',
-  styleUrls: ['./cart-cloth-shopping.component.css']
+  styleUrls: ['./cart-cloth-shopping.component.css'],
+  providers: [Vibration]
+
 })
 export class CartClothShoppingComponent implements OnInit{
   public itemsAddedInCart;
   
   public sumTotal;
   
-  constructor(private router: Router){
+  constructor(private router: Router, private vibration: Vibration) {
     
   }
   ngOnInit(){
@@ -32,6 +35,8 @@ export class CartClothShoppingComponent implements OnInit{
   }
   //navigate user to the product's details page
   buyProducts(products) {
+    this.vibration.vibrate(1000);
+
     this.router.navigate(['tabs/tab1/buy'],{ state: { totalItemsInOrder: products } });
   }
 

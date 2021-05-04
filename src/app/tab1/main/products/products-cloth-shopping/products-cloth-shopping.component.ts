@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddproductsdataService } from 'src/app/services/addproductsdata.service';
-import { Observable } from 'rxjs';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
-import { debounceTime, distinctUntilChanged, switchMap, catchError, map } from 'rxjs/operators';
 
 
 @Component({
   selector: 'app-product-cloth-shop',
   templateUrl: './products-cloth-shopping.component.html',
-  styleUrls: ['./products-cloth-shopping.component.css']
+  styleUrls: ['./products-cloth-shopping.component.css'],
+  providers: [Vibration]
+
 })
 export class ProductClothShoppingComponent {
   public allProductsData;
@@ -17,7 +18,7 @@ export class ProductClothShoppingComponent {
   listOfFilterFordisplay: any = ['Price - low to high', 'Price - high to low'];
   constructor(private router: Router,
     private addProducts: AddproductsdataService,
-    ) {
+    private vibration: Vibration) {
       this.getAllProducts()
   }
   
@@ -41,6 +42,8 @@ export class ProductClothShoppingComponent {
 
   //navigate user to the product's details page
   openProductDetails(product) {
+    this.vibration.vibrate(1000);
+
     this.router.navigate(['/tabs/tab1/detail'], { state: { currentProductData: product } });
   }
 
