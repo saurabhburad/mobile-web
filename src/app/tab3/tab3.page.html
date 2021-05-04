@@ -1,12 +1,24 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="new-background-color">
     <ion-title>
-      About Us
+      About us and screen Orientation
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="card h-100">
+      <div class="small text">
+        <ion-title class="ion-no-padding">The current screen Orientation is </ion-title>
+        <ion-title class="ion-no-padding">{{this.screenOrientation.type}} </ion-title>
+      </div>
+
+      <ion-button (click)="setOrentation()" class="button-background-color">set to landscape</ion-button>
+      <ion-button (click)="changeOrentation()" class="button-background-color">allow to rotate</ion-button>
+    </div>
+  </div>
   <app-about-cloth-shop></app-about-cloth-shop>
+
   <app-footer-cloth-shopping-component></app-footer-cloth-shopping-component>
 </ion-content>

@@ -1,0 +1,26 @@
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: none;
+    border-radius: .25rem;
+    margin-top: 50px;
+}
+.new-background-color{
+    --background: #ffd6d6;
+}
+
+.small{
+    max-width: 1080px;
+    margin-bottom: 20px;
+}
+.text{
+    font-family: cursive;
+    color: brown;
+}
