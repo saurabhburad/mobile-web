@@ -42,7 +42,7 @@ export class ExploreContainerComponent implements OnInit {
       let base64OrImage = 'data:image/jpeg;base64,' + imageData;
       this.image.emit(base64OrImage);
 
-      this.nativeStorage.setItem('myitem', { property: JSON.stringify(base64OrImage) })
+      this.nativeStorage.setItem('myitem', { property: base64OrImage })
         .then(
           () => {
             this.image.emit(base64OrImage);
