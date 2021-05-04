@@ -1,23 +1,25 @@
 <!--Single product details  -->
 <app-header-cloth-shopping-component></app-header-cloth-shopping-component>
 <ion-content [fullscreen]="true">
+    <back-button></back-button>
     <div class="small-shopping-container one-shopping-product">
         <div class="row">
             <div class="col-2">
                 <img src="{{currentItem.image1}}" alt="" width="100%" id="imageProduct">
                 <div class="small-image-row">
                     <div class="small-image-column">
-                        <img src="{{currentItem.image2}}" alt="" width="100%" class="small-images">
+                        <img src="{{currentItem.image4}}" alt="" width="100%" class="small-images" (click)="changeImg(currentItem.image4)">
                     </div>
                     <div class="small-image-column">
-                        <img src="{{currentItem.image3}}" alt="" width="100%" class="small-images">
+                        <img src="{{currentItem.image2}}" alt="" width="100%" class="small-images" (click)="changeImg(currentItem.image2)">
                     </div>
                     <div class="small-image-column">
-                        <img src="{{currentItem.image4}}" alt="" width="100%" class="small-images">
+                        <img src="{{currentItem.image3}}" alt="" width="100%" class="small-images" (click)="changeImg(currentItem.image3)">
                     </div>
                     <div class="small-image-column">
-                        <img src="{{currentItem.image4}}" alt="" width="100%" class="small-images">
+                        <img src="{{currentItem.image4}}" alt="" width="100%" class="small-images" (click)="changeImg(currentItem.image4)">
                     </div>
+                    
                 </div>
             </div>
             <div class="col-2">

@@ -16,7 +16,7 @@ export class ProductDetailsClothShoppingComponent {
   isInCart = false;
   cart;
   oldCartData;
-  constructor(private router: Router,private vibration: Vibration) {
+  constructor(private router: Router, private vibration: Vibration) {
     this.currentItem = this.router.getCurrentNavigation().extras.state.currentProductData;
     this.currentItem.productQuantities = 1;
     this.currentItem.selectedSize = "Select Size";
@@ -25,48 +25,61 @@ export class ProductDetailsClothShoppingComponent {
 
   //navigate user to the product's details page
   openProductDetails(product) {
+    this.vibration.vibrate(1000);
     this.router.navigate(['tabs/tab1/detail'], { state: { currentProductData: product } });
   }
 
 
   // navigate to add to cart section
   addProductToCart(product) {
-    this.vibration.vibrate(1000);
-    this.router.navigate(['/tabs/tab1/cart']);
-    let cartData = [];
-    if(JSON.parse(localStorage.getItem('cartObject'))){
-      this.oldCartData = (JSON.parse(localStorage.getItem('cartObject')));
-      
-      this.oldCartData.forEach(function (value) {
-        
-        cartData.push(value);
-      });
-    }
-    this.cart = cartData;
-    if (this.cart) {
-      this.isInCart = this.cart.some(item => item.product_id === product.product_id);
-    } else {
-      this.cart = [];
-    }
+    if (this.currentItem.selectedSize !== "Select Size") {
+      this.vibration.vibrate(1000);
+      this.router.navigate(['/tabs/tab1/cart']);
+      let cartData = [];
+      if (JSON.parse(localStorage.getItem('cartObject'))) {
+        this.oldCartData = (JSON.parse(localStorage.getItem('cartObject')));
 
-    if (this.isInCart) {
-      this.cart.map(item => {
-        if (item.product_id === product.product_id) {
-          if(item.selectedSize === product.selectedSize){
-            item.productQuantities += product.productQuantities;
-            return item;
-          }
-          else{
-            this.cart.push(product);
-          }
-        }
-        
-      });
-    } else {
-      this.cart.push(product);
-    }
+        this.oldCartData.forEach(function (value) {
 
-    //save data in local storage------------------------------------
+          cartData.push(value);
+        });
+      }
+      this.cart = cartData;
+      if (this.cart) {
+        this.isInCart = this.cart.some(item => item.product_id === product.product_id);
+      } else {
+        this.cart = [];
+      }
+
+      if (this.isInCart) {
+        this.cart.map(item => {
+          if (item.product_id === product.product_id) {
+            if (item.selectedSize === product.selectedSize) {
+              item.productQuantities += product.productQuantities;
+              return item;
+            }
+            else {
+              this.cart.push(product);
+            }
+          }
+
+        });
+      } else {
+        this.cart.push(product);
+      }
+          //save data in local storage------------------------------------
     localStorage.setItem('cartObject', JSON.stringify(this.cart));
+    } else {
+      alert("Select Size")
+    }
+
+
+  }
+
+  changeImg(src) {
+    var ProductImg = document.getElementById("imageProduct");
+    ProductImg['src'] = src
+    
+     
   }
 }

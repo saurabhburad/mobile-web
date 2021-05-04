@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from "@angular/router";
 import { AppHeaderClothShoppingComponent } from './components/header/app-header-cloth-shopping.component';
 import { AppFooterClothShoppingComponent } from './components/footer/app-footer-cloth-shopping.component';
+import { backButtonComponent } from './back-button/back-button.component';
 
 
 @NgModule({
@@ -12,12 +13,14 @@ import { AppFooterClothShoppingComponent } from './components/footer/app-footer-
   ],
   declarations: [
     AppHeaderClothShoppingComponent,
-    AppFooterClothShoppingComponent
+    AppFooterClothShoppingComponent,
+    backButtonComponent
  
   ],
   exports: [
     AppHeaderClothShoppingComponent,
-    AppFooterClothShoppingComponent
+    AppFooterClothShoppingComponent,
+    backButtonComponent
   ],
   providers: [
   

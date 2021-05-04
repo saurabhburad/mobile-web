@@ -25,20 +25,7 @@ export class ExploreContainerComponent implements OnInit {
   ngOnInit() {}
 
   openCamera() {
-  //   this.platform.ready().then(() => {
-  //     if(this.platform.is('cordova')){
-  //         this.camera.getPicture(this.options).then((imageData) => {
-  //             // imageData is either a base64 encoded string or a file URI
-  //             // If it's base64 (DATA_URL):
-              
-  //         }, (err) => {
-  //             // Handle error
-  //         });
-  //     }
-  // })
     this.camera.getPicture(this.options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64 (DATA_URL):
       let base64OrImage = 'data:image/jpeg;base64,' + imageData;
       this.image.emit(base64OrImage);
 

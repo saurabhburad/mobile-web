@@ -1,6 +1,6 @@
 <app-header-cloth-shopping-component></app-header-cloth-shopping-component>
 <ion-content [fullscreen]="true">
-
+    <back-button></back-button>
     <div class="small-shopping-container shopping-cart">
         <div *ngIf="!itemsAddedInCart || itemsAddedInCart.length === 0">No Items added in the cart yet !!!</div>
         <table *ngIf="itemsAddedInCart && itemsAddedInCart.length != 0">

@@ -11,7 +11,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 })
 export class Tab2Page {
 
-  base64OrImage;
+  base64OrImage ="https://images.pexels.com/photos/907267/pexels-photo-907267.jpeg?auto=compress&cs=tinysrgb&h=350";
 
   constructor(private nativeStorage: NativeStorage) {
     this.nativeStorage.getItem('myitem')
@@ -21,7 +21,7 @@ export class Tab2Page {
           console.log(data)
         },
         error => {
-         this.base64OrImage ="https://images.pexels.com/photos/907267/pexels-photo-907267.jpeg?auto=compress&cs=tinysrgb&h=350";
+        console.log(error)
         }
       );
   }

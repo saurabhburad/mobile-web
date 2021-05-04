@@ -1,5 +1,7 @@
 <app-header-cloth-shopping-component></app-header-cloth-shopping-component>
 <ion-content [fullscreen]="true">
+  <back-button></back-button>
+
   <div class="container div-padding">
     <form [formGroup]="placeOrderForm" (ngSubmit)="confirmOrder()" *ngIf="orderPlaced === false" novalidate>
 

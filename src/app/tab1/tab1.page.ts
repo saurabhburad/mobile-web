@@ -2,18 +2,21 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddproductsdataService } from 'src/app/services/addproductsdata.service';
 import { productsData } from '../data/products';
+import { Vibration } from '@ionic-native/vibration/ngx';
+
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  styleUrls: ['tab1.page.scss'],
+  providers: [Vibration]
+
 })
 export class Tab1Page {
   public allProductsData;
   constructor(
     private router: Router,
-    private addProducts: AddproductsdataService,
-  ) {
+    private addProducts: AddproductsdataService,private vibration: Vibration) {
     this.allProductsData = productsData;
     this.getAllProducts();
   }
@@ -21,6 +24,7 @@ export class Tab1Page {
 
   //navigate user to the product's details page
   openProductDetails(product) {
+    this.vibration.vibrate(1000);
     this.router.navigate(['tabs/tab1/detail'], { state: { currentProductData: product } });
   }
 
@@ -51,6 +55,8 @@ export class Tab1Page {
   }
   //navigate user to all products page
   openProductsSection() {
+    this.vibration.vibrate(1000);
+
     this.router.navigate(['tabs/tab1/search']);
   }
 
